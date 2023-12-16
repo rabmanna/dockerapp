@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-test-deploy:
-#    runs-on: ubuntu-latest # enable to use default runner of GH
+#    runs-on: ubuntu-latest # enable to use default runner of GH 
     runs-on: self-hosted
 
     steps:
