@@ -26,7 +26,11 @@ jobs:
           push: false
 #          tags: /webapp:${{ github.sha }}
           tags: rabisankar/webapp
-          
+
+       - name: List images
+         run: docker image list
+
+        
 #      - name: Deploy to EC2 instance
 #        uses: appleboy/ssh-action@master
 #        with:
