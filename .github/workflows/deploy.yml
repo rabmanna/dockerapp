@@ -33,3 +33,13 @@ jobs:
 
       - name: show index.html
         run: cat index.html
+        
+      - name: Deploy to GH-DEPLOY-SVR
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script: |
+            uname -a
