@@ -43,3 +43,12 @@ jobs:
           port: 22
           source: index.html
           target: /root/ 
+
+      - name: run ls -la at Remote host
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: ls -la
