@@ -7,8 +7,8 @@ on:
 
 jobs:
   build-test-deploy:
-#    runs-on: ubuntu-latest # enable to use default runner of GH 
-    runs-on: self-hosted
+    runs-on: ubuntu-latest # enable to use default runner of GH 
+#    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -34,12 +34,12 @@ jobs:
       - name: show index.html
         run: cat index.html
         
-      - name: Deploy to GH-DEPLOY-SVR
-        uses: appleboy/ssh-action@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          password: ${{ secrets.SSH_PASSWORD }}
           port: 22
-          script: |
-            uname -i
+          source: index.html
+          target: /root/
