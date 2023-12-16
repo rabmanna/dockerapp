@@ -28,7 +28,7 @@ jobs:
 
       - name: List images
 #        run: docker image list
-        run: docker run -it --rm rabisankar/webapp cat /usr/share/nginx/html/index.html | tee index.html
+        run: docker run --rm rabisankar/webapp cat /usr/share/nginx/html/index.html | tee index.html
 
       - name: show index.html
         run: cat index.html
